@@ -20,7 +20,6 @@ export interface ChatMessage {
 declare global {
   /**
    * Interface for the AI Studio global object.
-   * Moved inside declare global to ensure it matches the existing global scope.
    */
   interface AIStudio {
     hasSelectedApiKey: () => Promise<boolean>;
@@ -28,8 +27,17 @@ declare global {
   }
 
   interface Window {
-    // Fix: Removed readonly modifier to match the existing global property declaration and resolve modifier conflict.
-    aistudio: AIStudio;
+    // Fixed: Added 'readonly' modifier to match the global declaration provided by the environment
+    readonly aistudio: AIStudio;
     webkitAudioContext: typeof AudioContext;
+  }
+
+  namespace NodeJS {
+    interface Process {
+      env: ProcessEnv;
+    }
+    interface ProcessEnv {
+      API_KEY?: string;
+    }
   }
 }
