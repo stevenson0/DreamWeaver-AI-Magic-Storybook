@@ -28,8 +28,8 @@ declare global {
   }
 
   interface Window {
-    // Added readonly to match the existing global property definition and avoid modifier conflict.
-    readonly aistudio: AIStudio;
+    // Fix: Removed readonly modifier to match the existing global property declaration and resolve modifier conflict.
+    aistudio: AIStudio;
     webkitAudioContext: typeof AudioContext;
   }
 }

@@ -12,6 +12,15 @@
     <script src="https://cdn.tailwindcss.com"></script>
     <link href="https://fonts.googleapis.com/css2?family=Fredoka:wght@300;400;500;600;700&display=swap" rel="stylesheet">
     
+    <script>
+      /**
+       * Polyfill for process.env to support codebases expecting Node.js-style 
+       * environment variables in the browser. This prevents ReferenceErrors 
+       * when accessing process.env.API_KEY during API calls.
+       */
+      window.process = window.process || { env: {} };
+    </script>
+
     <style>
       body {
         font-family: 'Fredoka', sans-serif;
