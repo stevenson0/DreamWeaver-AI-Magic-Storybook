@@ -1,0 +1,7 @@
+{
+  "name": "DreamWeaver: AI Magic Storybook",
+  "description": "An interactive AI-powered storybook for kids that generates custom stories, illustrations, and speaks them aloud.",
+  "requestFramePermissions": [
+    "microphone"
+  ]
+}
