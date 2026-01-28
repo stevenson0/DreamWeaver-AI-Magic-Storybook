@@ -1,5 +1,6 @@
 
 export type ImageSize = '1K' | '2K' | '4K';
+export type AspectRatio = "1:1" | "3:4" | "4:3" | "9:16" | "16:9";
 
 export interface StoryPage {
   text: string;
@@ -18,17 +19,14 @@ export interface ChatMessage {
 }
 
 declare global {
-  /**
-   * Interface for the AI Studio global object.
-   */
   interface AIStudio {
     hasSelectedApiKey: () => Promise<boolean>;
     openSelectKey: () => Promise<void>;
   }
 
   interface Window {
-    // Fixed: Added 'readonly' modifier to match the global declaration provided by the environment
-    readonly aistudio: AIStudio;
+    // Fixed: Made aistudio optional to match global environment definitions and fix "identical modifiers" error
+    aistudio?: AIStudio;
     webkitAudioContext: typeof AudioContext;
   }
 
